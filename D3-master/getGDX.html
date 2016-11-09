@@ -53,33 +53,33 @@ d3.csv("./table.csv", function(data) {
 	var ln = data.length;
 	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
 
-	var line1 = d3.line().
+	var lines1 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return d.Open * (height/maxy); });
 	ctrl.append("path").data([data]).
 	attr("class", "pathline1").
-	attr("d", line1);
+	attr("d", lines1);
 
-	var line2 = d3.line().
+	var lines2 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return d.High * (height/maxy); });
 	ctrl.append("path").data([data]).
 	attr("class", "pathline2").
-	attr("d", line2);
+	attr("d", lines2);
 
-	var line3 = d3.line().
+	var lines3 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return d.Low * (height/maxy); });
 	ctrl.append("path").data([data]).
 	attr("class", "pathline3").
-	attr("d", line3);
+	attr("d", lines3);
 
-	var line4 = d3.line().
+	var lines4 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return d.Close * (height/maxy); });
 	ctrl.append("path").data([data]).
 	attr("class", "pathline4").
-	attr("d", line4);
+	attr("d", lines4);
 });
 
 </script>
