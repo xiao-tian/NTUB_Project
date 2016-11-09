@@ -2,8 +2,26 @@
 <html>
 <head>
 <style type="text/css">
-.pathline {
+.pathline1 {
 	stroke: red;
+	stroke-width: 3;
+	fill: none;
+}
+ type="text/css">
+.pathline2 {
+	stroke: green;
+	stroke-width: 3;
+	fill: none;
+}
+ type="text/css">
+.pathline3 {
+	stroke: blue;
+	stroke-width: 3;
+	fill: none;
+}
+ type="text/css">
+.pathline4 {
+	stroke: black;
 	stroke-width: 3;
 	fill: none;
 }
@@ -38,35 +56,28 @@ d3.csv("./table.csv", function(data) {
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return d.Open * (height/maxy); });
 	ctrl.append("path").data([data]).
-	attr("class", "pathline").
+	attr("class", "pathline1").
 	attr("d", lines);
 
 	var lines = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return d.High * (height/maxy); });
 	ctrl.append("path").data([data]).
-	attr("class", "pathline").
-	attr("d", lines);
-
-	var lines = d3.line().
-	x(function(d,i){ return i * (width/ln); }).
-	y(function(d){ return d.High * (height/maxy); });
-	ctrl.append("path").data([data]).
-	attr("class", "pathline").
+	attr("class", "pathline2").
 	attr("d", lines);
 
 	var lines = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return d.Low * (height/maxy); });
 	ctrl.append("path").data([data]).
-	attr("class", "pathline").
+	attr("class", "pathline3").
 	attr("d", lines);
 
 	var lines = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return d.Close * (height/maxy); });
 	ctrl.append("path").data([data]).
-	attr("class", "pathline").
+	attr("class", "pathline4").
 	attr("d", lines);
 });
 
