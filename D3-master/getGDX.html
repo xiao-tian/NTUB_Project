@@ -19,30 +19,24 @@ d3.csv("./table.csv", function(data) {
 	data.forEach(function(d) {
 		console.log(d.Open);
 	});
-	var maxy = d3.max(data, function(d) { return d.Open; });
-	var ln = data.length;
-	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
-	var lines = d3.line().
-	x(function(d,i){ return i * (width/ln); }).
-	y(function(d){ return d.Open * (height/maxy); });
-	ctrl.append("path").data([data]).
-	attr("class", "pathline").
-	attr("d", lines);
-});
 
-d3.csv("./table.csv", function(data) {
 	console.log(data);
 	data.forEach(function(b) {
 		console.log(b.High);
 	});
+
+	var maxy = d3.max(data, function(d) { return d.Open; });
 	var maxy = d3.max(data, function(b) { return b.High; });
 	var ln = data.length;
 	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
 	var lines = d3.line().
+	x(function(d,i){ return i * (width/ln); }).
 	x(function(b,i){ return i * (width/ln); }).
+	y(function(d){ return d.Open * (height/maxy).
 	y(function(b){ return b.High * (height/maxy); });
 	ctrl.append("path").data([data]).
 	attr("class", "pathline").
+	attr("d", lines).
 	attr("b", lines);
 });
 
