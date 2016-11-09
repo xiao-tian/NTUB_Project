@@ -19,13 +19,8 @@ d3.csv("./table.csv", function(data) {
 	data.forEach(function(d) {
 		console.log(d.Open);
 	});
-
-	data.forEach(function(b) {
-		console.log(b.High);
-	});
-
 	var maxy = d3.max(data, function(d) { return d.Open; });
-	var maxy = d3.max(data, function(b) { return b.High; });
+	var maxy = d3.max(data, function(d) { return d.High; });
 	var ln = data.length;
 	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
 	var lines = d3.line().
@@ -36,11 +31,11 @@ d3.csv("./table.csv", function(data) {
 	attr("d", lines);
 
 	var lines = d3.line().
-	x(function(b,i){ return i * (width/ln); }).
-	y(function(b){ return b.High * (height/maxy); });
+	x(function(d,i){ return i * (width/ln); }).
+	y(function(d){ return d.High * (height/maxy); });
 	ctrl.append("path").data([data]).
 	attr("class", "pathline").
-	attr("b", lines);
+	attr("d", lines);
 });
 
 </script>
