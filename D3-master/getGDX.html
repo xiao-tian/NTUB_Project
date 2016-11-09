@@ -30,12 +30,16 @@ d3.csv("./table.csv", function(data) {
 	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
 	var lines = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
+	y(function(d){ return d.Open * (height/maxy); });
+	ctrl.append("path").data([data]).
+	attr("class", "pathline").
+	attr("d", lines);
+
+	var lines = d3.line().
 	x(function(b,i){ return i * (width/ln); }).
-	y(function(d){ return d.Open * (height/maxy).
 	y(function(b){ return b.High * (height/maxy); });
 	ctrl.append("path").data([data]).
 	attr("class", "pathline").
-	attr("d", lines).
 	attr("b", lines);
 });
 
