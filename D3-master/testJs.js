@@ -7,14 +7,14 @@ function testJs()
 	dataFile = 'table.csv';
 	dataUrl = dataPath + dataFile;
 	
-d3.csv("dataUrl", function(data) {
+	d3.csv("dataUrl", function(data) {
 	console.log(data);
 	data.forEach(function(d) {
 		console.log(d.Open);
 		console.log(d.Low);
 		console.log(d.Close);
 	});
-	
+
 	var maxHigh = d3.max(data, function(d) { return d.High; });
 	var ln = data.length;
 	var ctrl  = d3.select(".article").append("svg").attr("width", width).attr("height", height);
