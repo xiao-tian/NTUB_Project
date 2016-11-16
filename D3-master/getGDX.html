@@ -2,32 +2,21 @@
 <html>
 <head>
 <style type="text/css">
-.pathline1 {
+.pathline {
 	stroke: red;
 	stroke-width: 3;
 	fill: none;
 }
-.pathline2 {
+#pathline2 {
 	stroke: green;
-	stroke-width: 3;
-	fill: none;
 }
-.pathline3 {
+#pathline3 {
 	stroke: blue;
-	stroke-width: 3;
-	fill: none;
 }
-.pathline4 {
+#pathline4 {
 	stroke: black;
-	stroke-width: 3;
-	fill: none;
 }
 
-.pathline6 {
-	stroke: brown;
-	stroke-width: 3;
-	fill: none;
-}
 </style>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
@@ -35,66 +24,47 @@
 <script type="text/javascript">
 var width  = 1024;
 var height = 768; 
-d3.csv("./table.csv", function(data) {
-	console.log(data);
-	data.forEach(function(d) {
+d3.csv("./table.csv", data.forEach(function(d) {
 		console.log(d.Open);
-	});
-	data.forEach(function(d) {
-		console.log(d.High);
-	});
-	data.forEach(function(d) {
 		console.log(d.Low);
-	});
-	data.forEach(function(d) {
 		console.log(d.Close);
 	});
-	data.forEach(function(d) {
-		console.log(d.Adj Close);
-	});
 
-	var maxy = d3.max(data, function(d) { return d.Open; });
-	var maxy = d3.max(data, function(d) { return d.High; });
-	var maxy = d3.max(data, function(d) { return d.Low; });
-	var maxy = d3.max(data, function(d) { return d.Close; });
-	var maxy = d3.max(data, function(d) { return d.Adj Close; });
+	var maxHigh = d3.max(data, function(d) { return d.High; });
 	var ln = data.length;
-	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
+	var ctrl  = d3.select(".article").append("svg").attr("width", width).attr("height", height);
 
-	var lines1 = d3.line().
+	var lines = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
-	y(function(d){ return d.Open * (height/maxy); });
+	y(function(d){ return height - d.High * (height/maxHigh); });
 	ctrl.append("path").data([data]).
-	attr("class", "pathline1").
-	attr("d", lines1);
+	attr("class", "pathline").
+	attr("d", lines);
 
-	var lines2 = d3.line().
+	var line2 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
-	y(function(d){ return d.High * (height/maxy); });
+	y(function(d){ return height - d.High * (height/maxHigh); });
 	ctrl.append("path").data([data]).
-	attr("class", "pathline2").
-	attr("d", lines2);
+	attr("class", "pathline").
+	attr("id", "pathline2").
+	attr("d", line2);
 
-	var lines3 = d3.line().
+    var line3 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
-	y(function(d){ return d.Low * (height/maxy); });
+	y(function(d){ return height - d.High * (height/maxHigh); });
 	ctrl.append("path").data([data]).
-	attr("class", "pathline3").
-	attr("d", lines3);
+	attr("class", "pathline").
+	attr("id", "pathline3").
+	attr("d", line3);
 
-	var lines4 = d3.line().
+	var line4 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
-	y(function(d){ return d.Close * (height/maxy); });
+	y(function(d){ return height - d.High * (height/maxHigh); });
 	ctrl.append("path").data([data]).
-	attr("class", "pathline4").
-	attr("d", lines4);
-
-	var lines6 = d3.line().
-	x(function(d,i){ return i * (width/ln); }).
-	y(function(d){ return d.Close * (height/maxy); });
-	ctrl.append("path").data([data]).
-	attr("class", "pathline6").
-	attr("d", lines6);
+	attr("class", "pathline").
+	attr("id", "pathline4").
+	attr("d", line4);
+	
 });
 
 </script>
