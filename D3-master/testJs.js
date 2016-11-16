@@ -1,7 +1,10 @@
 function testJs()
 {
 
-dataPath = 'https://github.com/xiao-tian/NTUB_Project/tree/master/D3-master/';
+
+	var width  = 460;
+	var height = 268;
+	dataPath = 'https://github.com/xiao-tian/NTUB_Project/tree/master/D3-master/';
 	dataFile = 'table.csv';
 	dataUrl = dataPath + dataFile;
 	
