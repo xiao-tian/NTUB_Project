@@ -50,14 +50,14 @@ d3.csv("./table.csv", function(data) {
 		console.log(d.Close);
 	});
 	data.forEach(function(d) {
-		console.log(d.AdjClose);
+		console.log(d.Adj Close);
 	});
 
 	var maxy = d3.max(data, function(d) { return d.Open; });
 	var maxy = d3.max(data, function(d) { return d.High; });
 	var maxy = d3.max(data, function(d) { return d.Low; });
 	var maxy = d3.max(data, function(d) { return d.Close; });
-	var maxy = d3.max(data, function(d) { return d.AdjClose; });
+	var maxy = d3.max(data, function(d) { return d.Adj Close; });
 	var ln = data.length;
 	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
 
