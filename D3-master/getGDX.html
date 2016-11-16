@@ -22,11 +22,7 @@
 	stroke-width: 3;
 	fill: none;
 }
-.pathline5 {
-	stroke: yellow;
-	stroke-width: 3;
-	fill: none;
-}
+
 .pathline6 {
 	stroke: brown;
 	stroke-width: 3;
@@ -54,9 +50,6 @@ d3.csv("./table.csv", function(data) {
 		console.log(d.Close);
 	});
 	data.forEach(function(d) {
-		console.log(d.Volume);
-	});
-	data.forEach(function(d) {
 		console.log(d.AdjClose);
 	});
 
@@ -64,7 +57,6 @@ d3.csv("./table.csv", function(data) {
 	var maxy = d3.max(data, function(d) { return d.High; });
 	var maxy = d3.max(data, function(d) { return d.Low; });
 	var maxy = d3.max(data, function(d) { return d.Close; });
-	var maxy = d3.max(data, function(d) { return d.Volume; });
 	var maxy = d3.max(data, function(d) { return d.AdjClose; });
 	var ln = data.length;
 	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
@@ -96,13 +88,6 @@ d3.csv("./table.csv", function(data) {
 	ctrl.append("path").data([data]).
 	attr("class", "pathline4").
 	attr("d", lines4);
-
-	var lines5 = d3.line().
-	x(function(d,i){ return i * (width/ln); }).
-	y(function(d){ return d.Close * (height/maxy); });
-	ctrl.append("path").data([data]).
-	attr("class", "pathline5").
-	attr("d", lines5);
 
 	var lines6 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
