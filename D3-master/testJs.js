@@ -15,7 +15,7 @@ d3.csv(dataUrl, function(data) {
 	});
 	var maxHigh = d3.max(data, function(d) { return d.High; });
 	var ln = data.length;
-	var ctrl  = d3.select(".newsletter").append("svg").attr("width", width).attr("height", height);
+	var ctrl  = d3.select(".article").append("svg").attr("width", width).attr("height", height);
 
 	var linesOpen = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
