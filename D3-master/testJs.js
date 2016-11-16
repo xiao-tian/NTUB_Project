@@ -21,7 +21,7 @@ function testJs()
 	var Closemaxy = d3.max(data, function(d) { return d.Close; });
 
 	var ln = data.length;
-	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
+	var ctrl  = d3.select(".artcile").append("svg").attr("width", width).attr("height", height);
 
 	var lines = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
