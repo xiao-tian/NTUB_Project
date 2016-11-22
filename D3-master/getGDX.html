@@ -16,6 +16,7 @@
 #pathline4 {
 	stroke: black;
 }
+
 </style>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
@@ -36,12 +37,17 @@ d3.csv("./table.csv", function(data) {
 	var Closemaxy = d3.max(data, function(d) { return d.Close; });
 	var ln = data.length;
 	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
+	var ln = data.length;
+	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
+
+
 	var lines = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return height-d.Open * (height/Highmaxy); });
 	ctrl.append("path").data([data]).
 	attr("class", "pathline").
 	attr("d", lines);
+
 	var line2 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return height-d.High * (height/Highmaxy); });
@@ -49,6 +55,7 @@ d3.csv("./table.csv", function(data) {
 	attr("class", "pathline").
 	attr("id", "pathline2").
 	attr("d", line2);
+
     var line3 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return height-d.Low * (height/Highmaxy); });
@@ -56,6 +63,7 @@ d3.csv("./table.csv", function(data) {
 	attr("class", "pathline").
 	attr("id", "pathline3").
 	attr("d", line3);
+
 	var line4 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return height-d.Close * (height/Highmaxy); });
