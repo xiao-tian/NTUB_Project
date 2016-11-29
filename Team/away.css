@@ -9,7 +9,7 @@ a{ text-decoration:none;}
 a:hover{ text-decoration:underline;}
 .listReset{ padding:0; margin:0; list-style:none;}
 
-.tabPanel{ width:960px; margin:auto; position:relative; height:480px; overflow:hidden;}
+.tabPanel{ width:960px; margin:auto; position:relative; height:480px; overflow:hidden; margin-bottom:50px;}
 .tab-content{ width:450px; height:200px; position:absolute; top:0; left:0;}
 .detail{ position:absolute; left:80px; top:0; width:700px; height:400px; background:url(images/detailBG.png); padding:5px;}
 .detail h1 a{ color:#0000CD; font-size:1.0em;}
