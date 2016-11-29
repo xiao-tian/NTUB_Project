@@ -2,7 +2,7 @@
 /* CSS By Away */
 /* http://www.dfuns.idv.tw */
 
-body{ font:1em/1 "微軟正黑體", "新細明體", "細明體", "標楷體"; background:url(images/bg.jpg) repeat-x;}
+body{ font:1em/1 "微軟正黑體", "新細明體", "細明體", "標楷體"; background:#FFFFFF;}
 h1, h2, h3, h4, h5, h6, p, div{ margin:0;}
 .hdr{ background:url(images/logo.png); width:461px; height:94px; margin:10px auto; text-indent:-9999px;}
 a{ text-decoration:none;}
